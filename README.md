@@ -4,6 +4,10 @@ Aplicación web para la operación de un centro de distribución: recepción de 
 
 > Proyecto demostrativo de portafolio. La empresa, los proveedores, las sucursales, los clientes y todos los datos incluidos son ficticios.
 
+<p align="center">
+  <img src="docs/captura.webp" alt="Panel principal de MediVortex con inventario valorizado, alertas FEFO, cuarentena y pedidos" width="100%" />
+</p>
+
 ## Características principales
 
 - **Recepción documentada:** ingreso de mercadería por factura, guía de despacho u orden de compra, con desglose por lote, fecha de vencimiento, costo unitario y firma del receptor. Emite el acta de recepción en PDF.
@@ -164,3 +168,7 @@ routes/
 ## Autor
 
 Desarrollado por **[Faundezz21](https://github.com/Faundezz21)**.
+
+## Licencia
+
+Distribuido bajo licencia **MIT**. Ver [`LICENSE`](LICENSE).
