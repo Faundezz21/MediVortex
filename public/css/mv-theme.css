@@ -1,0 +1,263 @@
+/* tema visual global: tarjetas, tablas, campos, botones y kpis de todas las pantallas */
+
+:root {
+    --mv-line: #ECE9F6;
+    --mv-line-strong: #DDD8F0;
+    --mv-ink: #120F24;
+    --mv-muted: #6B6590;
+    --mv-brand: #7C3AED;
+    --mv-brand-dark: #5B21B6;
+    --mv-surface-soft: #F8F7FD;
+    --mv-shadow: 0 1px 2px rgba(18, 15, 36, 0.04), 0 10px 28px -16px rgba(46, 16, 101, 0.18);
+    --mv-shadow-hover: 0 2px 4px rgba(18, 15, 36, 0.05), 0 18px 36px -18px rgba(46, 16, 101, 0.32);
+}
+
+html.dark {
+    --mv-line: #2E2952;
+    --mv-line-strong: #3A3366;
+    --mv-muted: #A9A3C9;
+    --mv-surface-soft: #1B1832;
+    --mv-shadow: 0 1px 0 rgba(255, 255, 255, 0.03), 0 12px 28px -18px rgba(0, 0, 0, 0.7);
+    --mv-shadow-hover: 0 1px 0 rgba(255, 255, 255, 0.05), 0 20px 40px -18px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------- tarjetas y paneles ---------- */
+main :is(div, section, form, article, a, aside).bg-white:is(.rounded-xl, .rounded-2xl, .rounded-3xl) {
+    border-color: var(--mv-line) !important;
+    box-shadow: var(--mv-shadow) !important;
+}
+
+main :is(div, section, form, article, a, aside).bg-white.rounded-2xl {
+    border-radius: 20px !important;
+}
+
+main a.bg-white:is(.rounded-xl, .rounded-2xl) {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+main a.bg-white:is(.rounded-xl, .rounded-2xl):hover {
+    transform: translateY(-2px);
+    box-shadow: var(--mv-shadow-hover) !important;
+    border-color: var(--mv-line-strong) !important;
+}
+
+/* ---------- campos de formulario ---------- */
+main :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="range"]):not([type="color"]), select, textarea),
+.fixed :is(input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]):not([type="range"]):not([type="color"]), select, textarea) {
+    border-radius: 12px !important;
+    border-color: var(--mv-line-strong) !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+main :is(input, select, textarea):focus,
+.fixed :is(input, select, textarea):focus {
+    border-color: #8B5CF6 !important;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.16) !important;
+    outline: none !important;
+}
+
+main label.uppercase,
+main label .uppercase {
+    letter-spacing: 0.08em;
+}
+
+/* ---------- tablas ---------- */
+main table thead th,
+.fixed table thead th {
+    background-color: var(--mv-surface-soft);
+    color: var(--mv-muted) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--mv-line) !important;
+}
+
+main table tbody tr,
+.fixed table tbody tr {
+    transition: background-color 0.12s ease;
+}
+
+main table tbody tr:hover > td {
+    background-color: rgba(124, 58, 237, 0.035);
+}
+
+html.dark main table tbody tr:hover > td {
+    background-color: rgba(167, 139, 250, 0.06);
+}
+
+main table :is(td, th) {
+    border-color: var(--mv-line) !important;
+}
+
+/* ---------- botones principales ---------- */
+:is(main, .fixed) :is(button, a).bg-teal-600,
+:is(main, .fixed) :is(button, a).bg-teal-700 {
+    background-image: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+    box-shadow: 0 10px 20px -10px rgba(124, 58, 237, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    border-color: transparent !important;
+}
+
+:is(main, .fixed) :is(button, a).bg-teal-600:hover,
+:is(main, .fixed) :is(button, a).bg-teal-700:hover {
+    background-image: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+}
+
+:is(main, .fixed) :is(button, a):is(.rounded-lg, .rounded-xl) {
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+:is(main, .fixed) :is(button, a):is(.rounded-lg, .rounded-xl):active {
+    transform: translateY(1px);
+}
+
+/* ---------- banner de bienvenida del dashboard ---------- */
+.mv-hero-banner {
+    background:
+        radial-gradient(60% 120% at 100% 0%, rgba(167, 139, 250, 0.45), transparent 60%),
+        radial-gradient(50% 90% at 0% 100%, rgba(91, 33, 182, 0.55), transparent 70%),
+        linear-gradient(135deg, #1C1640 0%, #120F24 100%);
+    box-shadow: 0 24px 48px -28px rgba(46, 16, 101, 0.75);
+}
+
+.mv-hero-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 30%, #000 100%);
+    pointer-events: none;
+}
+
+.mv-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(6px);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.mv-hero-btn:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-1px);
+}
+
+.mv-hero-btn-primary {
+    background: #fff;
+    color: #4C1D95;
+    box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.6);
+}
+
+.mv-hero-btn-primary:hover {
+    background: #F5F3FF;
+}
+
+/* ---------- tarjetas kpi ---------- */
+.mv-kpi {
+    position: relative;
+    overflow: hidden;
+    flex-direction: column-reverse !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+    gap: 14px !important;
+    padding: 18px !important;
+    min-height: 150px;
+}
+
+.mv-kpi > div:last-child {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 12px !important;
+}
+
+.mv-kpi > div:first-child {
+    min-width: 0;
+    width: 100%;
+    container-type: inline-size;
+}
+
+/* el tamano del numero se ajusta al ancho real de la tarjeta para no cortarse */
+.mv-kpi h3 {
+    font-size: clamp(15px, 13cqi, 26px) !important;
+    white-space: nowrap;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em;
+    margin-top: 6px !important;
+}
+
+.mv-kpi::before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 120px;
+    height: 120px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.12), transparent 70%);
+    pointer-events: none;
+}
+
+/* las tarjetas kpi con borde izquierdo de color pasan a una franja superior */
+.mv-kpi.border-l-4 {
+    border-left-width: 1px !important;
+}
+
+.mv-kpi.border-l-4::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 0;
+    height: 3px;
+    border-radius: 0 0 4px 4px;
+    background: currentColor;
+}
+
+.mv-kpi.border-l-rose-500::after { color: #F43F5E; }
+.mv-kpi.border-l-amber-500::after { color: #F59E0B; }
+
+/* ---------- encabezado de pagina del layout ---------- */
+main > div > div.border-b.border-slate-200 {
+    border-color: var(--mv-line) !important;
+}
+
+/* ---------- barra de scroll del contenido ---------- */
+main::-webkit-scrollbar {
+    width: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #D9D4EE;
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+html.dark main::-webkit-scrollbar-thumb {
+    background: #3A3366;
+    background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main a.bg-white:is(.rounded-xl, .rounded-2xl),
+    .mv-hero-btn,
+    :is(main, .fixed) :is(button, a):is(.rounded-lg, .rounded-xl) {
+        transition: none;
+    }
+
+    main a.bg-white:is(.rounded-xl, .rounded-2xl):hover,
+    .mv-hero-btn:hover {
+        transform: none;
+    }
+}
